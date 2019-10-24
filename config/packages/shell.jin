@@ -1,11 +1,3 @@
-;
-; Set a custom prompt.  A prompt should just be a callable class (__invoke) which returns a
-; string containing the custom prompt.
-;
-
-prompt = Hiraeth\Shell\Prompt
-
-
 [application]
 
 	;
@@ -46,6 +38,13 @@ prompt = Hiraeth\Shell\Prompt
 ;
 
 [shell]
+
+	;
+	; Set a custom prompt.  A prompt should just be a callable class (__invoke) which returns a
+	; string containing the custom prompt.
+	;
+
+	prompt = Hiraeth\Shell\Prompt
 
 	;
 	; Add Psysh compatible commands here

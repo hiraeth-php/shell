@@ -32,7 +32,7 @@ class RunnerDelegate implements Hiraeth\Delegate
 	 */
 	public function __invoke(Hiraeth\Application $app): object
 	{
-		$prompt = $app->getConfig('packages/shell', 'prompt', Prompt::class);
+		$prompt = $app->getConfig('packages/shell', 'shell.prompt', Prompt::class);
 		$runner = new Runner($app->get(Configuration::class));
 
 		foreach ($app->getConfig('*', 'shell.commands') as $commands) {
