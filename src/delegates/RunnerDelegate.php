@@ -35,7 +35,7 @@ class RunnerDelegate implements Hiraeth\Delegate
 		$prompt = $app->getConfig('packages/shell', 'shell.prompt', Prompt::class);
 		$runner = new Runner($app->get(Configuration::class));
 
-		foreach ($app->getConfig('*', 'shell.commands') as $commands) {
+		foreach ($app->getConfig('*', 'shell.commands', []) as $commands) {
 			foreach ($commands as $command) {
 				$runner->add($app->get($command));
 			}
