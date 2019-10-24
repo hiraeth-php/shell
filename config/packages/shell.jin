@@ -34,7 +34,7 @@
 	]
 
 ;
-; A [shell] section can be added to any configuration file to add custom commands.
+; A [shell] section can be added to any configuration file to add custom commands or variables
 ;
 
 [shell]
@@ -53,6 +53,14 @@
 	commands = [
 
 	]
+
+	;
+	; Variables are resolved using the broker and added to the shell's scope
+	;
+
+	variables = {
+		; "acme" => "Acme\Some\Thing"
+	}
 
 ;
 ; Register the shell with the console

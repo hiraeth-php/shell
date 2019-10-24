@@ -34,6 +34,21 @@ class RunnerDelegate implements Hiraeth\Delegate
 	{
 		$prompt = $app->getConfig('packages/shell', 'shell.prompt', Prompt::class);
 		$runner = new Runner($app->get(Configuration::class));
+		$scope  = ['app' => $app];
+
+		foreach ($app->getConfig('*', 'shell.variables', []) as $path => $variables) {
+			foreach ($variables as $name => $class) {
+				if (isset($scope[$name])) {
+					throw new RuntimeException(sprintf(
+						'Cannot set variable "%s" in scope, from config %s, already set.',
+						$name,
+						$path
+					));
+				}
+
+				$scope[$name] = $app->get($class);
+			}
+		}
 
 		foreach ($app->getConfig('*', 'shell.commands', []) as $commands) {
 			foreach ($commands as $command) {
@@ -44,6 +59,8 @@ class RunnerDelegate implements Hiraeth\Delegate
 		if ($prompt) {
 			$runner->setPrompt($app->get($prompt));
 		}
+
+		$runner->setScopeVariables($scope);
 
 		return $runner;
 	}
