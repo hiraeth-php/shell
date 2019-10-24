@@ -39,6 +39,6 @@ class ShellCommand extends Command
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		return $shell->run();
+		return $this->shell->run();
 	}
 }
