@@ -2,6 +2,8 @@
 
 namespace Hiraeth\Shell;
 
+use Hiraeth\Application;
+
 /**
  *
  */
