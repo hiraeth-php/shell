@@ -20,6 +20,8 @@ class ShellCommand extends Command
 	public function __construct(Runner $shell)
 	{
 		$this->shell = $shell;
+
+		parent::__construct();
 	}
 
 
