@@ -3,6 +3,7 @@
 namespace Hiraeth\Shell;
 
 use Hiraeth;
+use RuntimeException;
 use Psy\Configuration;
 
 /**
@@ -11,11 +12,7 @@ use Psy\Configuration;
 class RunnerDelegate implements Hiraeth\Delegate
 {
 	/**
-	 * Get the class for which the delegate operates.
-	 *
-	 * @static
-	 * @access public
-	 * @return string The class for which the delegate operates
+	 * {@inheritDoc}
 	 */
 	static public function getClass(): string
 	{
@@ -24,11 +21,7 @@ class RunnerDelegate implements Hiraeth\Delegate
 
 
 	/**
-	 * Get the instance of the class for which the delegate operates.
-	 *
-	 * @access public
-	 * @param Hiraeth\Application $app The application instance for which the delegate operates
-	 * @return Runner The instance of our logger
+	 * {@inheritDoc}
 	 */
 	public function __invoke(Hiraeth\Application $app): object
 	{

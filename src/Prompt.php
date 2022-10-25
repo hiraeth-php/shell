@@ -12,6 +12,12 @@ class Prompt
 	/**
 	 *
 	 */
+	protected $app = NULL;
+
+
+	/**
+	 *
+	 */
 	public function __construct(Application $app)
 	{
 		$this->app = $app;
