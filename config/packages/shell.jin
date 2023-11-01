@@ -68,6 +68,6 @@
 
 [console]
 
-	commands = [
-		"Hiraeth\Shell\ShellCommand"
-	]
+	commands = {
+		"shell": "Hiraeth\Shell\ShellCommand"
+	}
