@@ -21,7 +21,14 @@
 		"phpunit/phpunit": "^10.0"
 	},
 	"autoload": {
-		"classmap": ["src/"]
+		"classmap": [
+            "src"
+        ]
+	},
+	"autoload-dev": {
+		"classmap": [
+            "test/src"
+        ]
 	},
 	"type": "opus-package",
 	"extra": {

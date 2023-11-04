@@ -12,20 +12,15 @@ class Runner extends Shell
 	/**
 	 * The dynamic prompt callback
 	 *
-	 * @access private
-	 * @var callable
+	 * @var callable|null
 	 */
-	private $prompt = NULL;
+	private $prompt;
 
 
 	/**
 	 * Execute an arbitrary command in the context of the shell
-	 *
-	 * @access public
-	 * @var string $command The command to execute
-	 * @return mixed The result of the command execution
 	 */
-	public function exec($command)
+	public function exec(string $command): mixed
 	{
 		return $this->runCommand($command);
 	}
@@ -33,12 +28,8 @@ class Runner extends Shell
 
 	/**
 	 * Set a custom prompt string
-	 *
-	 * @access public
-	 * @var string|callable $prompt A prompt or callable to generate a prompt
-	 * @return void
 	 */
-	public function setPrompt($prompt)
+	public function setPrompt(callable|string $prompt): self
 	{
 		if (!is_callable($prompt)) {
 			$this->prompt = function() use ($prompt) {
@@ -48,6 +39,8 @@ class Runner extends Shell
 		} else {
 			$this->prompt = $prompt;
 		}
+
+		return $this;
 	}
 
 

@@ -10,9 +10,9 @@ use Hiraeth\Application;
 class Prompt
 {
 	/**
-	 *
+	 * @var Application
 	 */
-	protected $app = NULL;
+	protected $app;
 
 
 	/**
@@ -27,9 +27,9 @@ class Prompt
 	/**
 	 *
 	 */
-	public function __invoke()
+	public function __invoke(): string
 	{
-		$cwd  = getcwd();
+		$cwd  = getcwd() ?: '!';
 		$home = $this->app->getEnvironment('HOME');
 		$root = $this->app->getDirectory()->getRealPath();
 

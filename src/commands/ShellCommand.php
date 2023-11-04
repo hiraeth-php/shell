@@ -9,9 +9,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ShellCommand extends Command
 {
 	/**
-	 *
+	 * @var string
 	 */
 	protected static $defaultName = 'shell';
+
+	/**
+	 * @var Runner
+	 */
+	protected $shell;
 
 
 	/**
