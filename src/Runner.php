@@ -32,9 +32,7 @@ class Runner extends Shell
 	public function setPrompt(callable|string $prompt): self
 	{
 		if (!is_callable($prompt)) {
-			$this->prompt = function() use ($prompt) {
-				return (string) $prompt;
-			};
+			$this->prompt = (fn() => (string) $prompt);
 
 		} else {
 			$this->prompt = $prompt;

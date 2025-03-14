@@ -33,9 +33,9 @@ class Prompt
 		$home = $this->app->getEnvironment('HOME');
 		$root = $this->app->getDirectory()->getRealPath();
 
-		if (strpos($cwd, $root) === 0) {
+		if (str_starts_with($cwd, (string) $root)) {
 			$cwd = preg_replace('#^' . $root . '#', '@', $cwd);
-		} elseif (strpos($cwd, $home) === 0) {
+		} elseif (str_starts_with($cwd, (string) $home)) {
 			$cwd = preg_replace('#^' . $home . '#', '~', $cwd);
 		}
 
